@@ -1,2 +1,6 @@
 <router-outlet></router-outlet>
-<app-profile-card></app-profile-card>
+<div class="profile-card__wrapper">
+  <ng-container *ngFor="let profile of profiles">
+    <app-profile-card [profile]="profile"></app-profile-card>
+  </ng-container>
+</div>
