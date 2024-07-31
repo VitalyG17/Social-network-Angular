@@ -15,6 +15,7 @@ import { LayoutComponent } from './common-ui/layout/layout.component';
 import { SidebarComponent } from './common-ui/sidebar/sidebar.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TgUsernamePipe } from './helpers/pipes/tg-username.pipe';
+import { AuthService } from './data/services/auth.service';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,7 @@ import { TgUsernamePipe } from './helpers/pipes/tg-username.pipe';
     CommonModule,
     ReactiveFormsModule,
   ],
-  providers: [ProfileService],
+  providers: [ProfileService, AuthService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
