@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ProfileCardComponent } from './common-ui/profile-card/profile-card.component';
 import { ProfileService } from './data/services/profile.service';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { ImgUrlPipe } from './helpers/pipes/img-url.pipe';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
@@ -16,6 +16,7 @@ import { SidebarComponent } from './common-ui/sidebar/sidebar.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TgUsernamePipe } from './helpers/pipes/tg-username.pipe';
 import { AuthService } from './data/services/auth.service';
+import { AuthInterceptorService } from './data/services/auth.interceptor.service';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,16 @@ import { AuthService } from './data/services/auth.service';
     CommonModule,
     ReactiveFormsModule,
   ],
-  providers: [ProfileService, AuthService],
+  providers: [
+    ProfileService,
+    AuthService,
+    AuthInterceptorService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptorService,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
