@@ -10,7 +10,7 @@ h1 {
   margin-bottom: 60px;
 }
 
-button {
+.btn {
   margin-top: 24px;
   position: relative;
   border-radius: 2px;
@@ -27,6 +27,32 @@ button {
   }
 }
 
-img {
-  margin-left: 20%;
+.main-logo,
+.login-form{
+  place-self: center;
 }
+
+.login-form {
+  width: 440px;
+}
+
+.password-input {
+  position: relative;
+}
+
+.password-eye-btn {
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  cursor: pointer;
+  align-items: center;
+  transform: translateY(-30%);
+  background: none;
+  border: none;
+  &.active {
+  //
+  }
+}
+
+
+

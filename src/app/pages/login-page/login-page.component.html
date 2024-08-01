@@ -9,13 +9,22 @@
 
   <label class="tt-control-label">
     Password
-    <input required
-      [formControl]= "loginForm.controls.password"
-      class="tt-input" type="password" placeholder="Введите пароль">
+    <div class="password-input">
+      <input required
+             [formControl]= "loginForm.controls.password"
+             class="tt-input"
+             [type]="isPasswordVisible ? 'text' : 'password'"
+             placeholder="Введите пароль">
+      <button class="password-eye-btn"
+              (click)="togglePasswordVisibility()"
+              [class.active]="isPasswordVisible">
+        <img class="show-pass" src="assets/svg/show-password.svg" alt="Показать пароль">
+      </button>
+    </div>
   </label>
 
   <button class="btn" type="submit">Войти</button>
 </form>
 
-<img src="assets/svg/logo-big.svg" alt="logo">
+<img class="main-logo" src="assets/svg/logo-big.svg" alt="logo">
 

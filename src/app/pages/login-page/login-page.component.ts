@@ -14,6 +14,8 @@ export class LoginPageComponent {
 
   private readonly router: Router = inject(Router);
 
+  protected isPasswordVisible: boolean = false;
+
   public readonly loginForm: FormGroup<LoginForm> = new FormGroup<LoginForm>({
     username: new FormControl(null, [Validators.required]),
     password: new FormControl(null, [
@@ -33,5 +35,9 @@ export class LoginPageComponent {
           console.log(res);
         });
     }
+  }
+
+  protected togglePasswordVisibility() {
+    this.isPasswordVisible = !this.isPasswordVisible;
   }
 }
