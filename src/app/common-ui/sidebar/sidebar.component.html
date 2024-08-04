@@ -1,1 +1,39 @@
-<p>sidebar works!</p>
+<img src="/assets/svg/logo-small.svg" alt="logo" class="sm-img" />
+
+<nav>
+  <ul class="main-menu-list">
+    <li *ngFor="let item of menuItems">
+      <button class="menu-item">
+        <svg [icon]="item.icon" class="menu-item__img"></svg>
+        <span>{{ item.label }}</span>
+      </button>
+    </li>
+  </ul>
+</nav>
+
+<p class="medium-text" style="margin-bottom: 20px">Подписчики</p>
+
+<app-subscriber-card *ngFor="let profile of subscribers$ | async"
+                     [profile]="profile">
+</app-subscriber-card>
+
+<div class="to-subscribers" style="margin: 20px 0">
+  <a class="to-subscribers-link medium-text" [routerLink]="['/subscribers']">
+    Все подписчики
+  </a>
+  <svg icon="arrow" class="to-subscribers-icon"></svg>
+</div>
+
+<footer class="sidebar__footer">
+  <ng-container *ngIf="me && me.avatarUrl" >
+    <img [src]="me.avatarUrl | imgUrl" alt="avatar">
+    <div class="medium-text username-text">{{me.username}}</div>
+  </ng-container>
+  <ng-container *ngIf="!(me?.avatarUrl)">
+    <img class="empty-avatar" src="../../../assets/imgs/avatar-placeholder.png" alt="avatar">
+    <div class="medium-text username-text">{{me?.username}}</div>
+    <a [routerLink]="['settings']" class="settings-btn">
+      <svg icon="settings"></svg>
+    </a>
+  </ng-container>
+</footer>

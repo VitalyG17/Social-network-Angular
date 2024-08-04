@@ -17,6 +17,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { TgUsernamePipe } from './helpers/pipes/tg-username.pipe';
 import { AuthService } from './data/services/auth.service';
 import { AuthInterceptorService } from './data/services/auth.interceptor.service';
+import { SvgIconComponent } from './common-ui/svg-icon/svg-icon.component';
+import { SubscriberCardComponent } from './common-ui/sidebar/subscriber-card/subscriber-card.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +31,8 @@ import { AuthInterceptorService } from './data/services/auth.interceptor.service
     LayoutComponent,
     SidebarComponent,
     TgUsernamePipe,
+    SvgIconComponent,
+    SubscriberCardComponent,
   ],
   imports: [
     BrowserModule,
